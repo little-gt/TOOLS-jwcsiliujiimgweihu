@@ -8,7 +8,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 // 检查当前时间是否超过了设定的时间
 if ($currentDateTime > $cutoffDateTime) {
     session_start(); //启动session会话
-    $_SESSION['massage'] = '已过上传时间，禁止继续上传';
+    $_SESSION['err_message'] = '已过上传时间，禁止继续上传';
     header('Location: ./action/result.php');
     exit;
 }

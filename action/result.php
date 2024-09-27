@@ -8,13 +8,13 @@ $templateSucPath = '../templates/template3.html';
 
 // 读取参数
 $message = null;
-if (isset($_SESSION['err_massage'])) {
-    $message = $_SESSION['err_massage'];
-    unset($_SESSION['err_massage']); // 清除会话中的消息数据
+if (isset($_SESSION['err_message'])) {
+    $message = $_SESSION['err_message'];
+    unset($_SESSION['err_message']); // 清除会话中的消息数据
 }
-if(isset($_SESSION['suc_massage']))  {
-    $message = $_SESSION['suc_massage'];
-    unset($_SESSION['suc_massage']); // 清除会话中的消息数据
+if(isset($_SESSION['suc_message']))  {
+    $message = $_SESSION['suc_message'];
+    unset($_SESSION['suc_message']); // 清除会话中的消息数据
     // 输出成功信息
     if (file_exists($templateSucPath)) {
         ob_start(); // 开始输出缓冲

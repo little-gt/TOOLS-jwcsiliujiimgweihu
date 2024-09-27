@@ -71,7 +71,7 @@ if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
     // 检查目标文件夹是否存在
     if (!is_dir($target_dir)) {
         session_start(); // 启动会话
-        $_SESSION['err_massage'] = "目标文件夹不存在，请联系系统管理员处理此问题";
+        $_SESSION['err_message'] = "目标文件夹不存在，请联系系统管理员处理此问题";
         header("Location: result.php?error=" . urlencode("目标文件夹不存在，请联系系统管理员处理此问题"));
         exit;
     }
@@ -89,30 +89,30 @@ if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
             // 检查文件是否成功移动到指定位置
             if (file_exists($target_file)) {
                 session_start(); // 启动会话
-                $_SESSION['suc_massage'] = "文件 ". htmlspecialchars(basename($_FILES["photo"]["name"])). " 已上传";
+                $_SESSION['suc_message'] = "文件 ". htmlspecialchars(basename($_FILES["photo"]["name"])). " 已上传";
                 header("Location: result.php?success=文件 ". htmlspecialchars(basename($_FILES["photo"]["name"])). " 已上传");
                 exit;
             } else {
                 session_start(); // 启动会话
-                $_SESSION['err_massage'] = "上传过程中发生了错误";
+                $_SESSION['err_message'] = "上传过程中发生了错误";
                 header("Location: result.php?error=" . urlencode("上传过程中发生了错误"));
             }
         } else {
             session_start(); // 启动会话
-            $_SESSION['err_massage'] = "上传过程中发生了错误";
+            $_SESSION['err_message'] = "上传过程中发生了错误";
             header("Location: result.php?error=" . urlencode("上传过程中发生了错误"));
         }
     }
 
     if (isset($errorMessage)) {
         session_start(); // 启动会话
-        $_SESSION['err_massage'] = $errorMessage;
+        $_SESSION['err_message'] = $errorMessage;
         header("Location: result.php?error=" . urlencode($errorMessage));
         exit;
     }
 } else {
     session_start(); // 启动会话
-    $_SESSION['err_massage'] = "请选择你需要上传的文件";
+    $_SESSION['err_message'] = "请选择你需要上传的文件";
     header("Location: result.php?error=" . urlencode("请选择你需要上传的文件"));
     exit;
 }
