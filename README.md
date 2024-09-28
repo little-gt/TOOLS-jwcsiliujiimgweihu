@@ -3,8 +3,8 @@
 学校原本使用的四六级照片维护上传系统很简陋，而且不支持对上传的文件进行校验。重写的系统美化了UI设计，并且支持对上传的文件进行文件类型、文件大小、文件名、身份证号准确性的校验。
 
 ## 系统预览
-[![pAlTGYn.png](https://s21.ax1x.com/2024/09/27/pAlTGYn.png)](https://imgse.com/i/pAlTGYn)
-[![pAlTJWq.png](https://s21.ax1x.com/2024/09/27/pAlTJWq.png)](https://imgse.com/i/pAlTJWq)
+[![pAlzOTP.png](https://s21.ax1x.com/2024/09/28/pAlzOTP.png)](https://imgse.com/i/pAlzOTP)
+[![pAlzjFf.png](https://s21.ax1x.com/2024/09/28/pAlzjFf.png)](https://imgse.com/i/pAlzjFf)
 
 ## 特别注意
 
