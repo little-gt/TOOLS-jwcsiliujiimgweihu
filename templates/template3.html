@@ -5,71 +5,120 @@
     <title>上传成功 | 西南大学教务处 - 四六级照片维护</title>
     <style>
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif; /* 使用微软雅黑字体 */
-            background: url(https://pic1.imgdb.cn/item/633c3dea16f2c2beb15b05e6.jpg) no-repeat center center fixed; /* 设置背景图片 */
-            background-size: cover; /* 背景图片覆盖整个屏幕 */
-            color: #FFF;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            overflow: hidden;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://pic1.imgdb.cn/item/633c3dea16f2c2beb15b05e6.jpg') no-repeat center center fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(40, 40, 40, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
-        .container {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            border: 1px solid #000; /* 边框 */
-            border-radius: 4px; /* 方形边缘 */
-            box-shadow: 0 0 0 4px #000 inset; /* 边角突出描边 */
-            width: 50%;
+        .success-box {
+            background-color: #333;
+            color: white;
             padding: 30px;
-            text-align: center;
-            color: #FFF;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
         }
         .logo {
             width: 100%;
-            max-width: 400px;
+            max-width: 200px;
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
+        .logo img {
+            max-width: 100%;
+            height: auto;
         }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .logo span {
+            display: none;
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 1.5em;
         }
-        a {
-            display: inline-block;
-            background-color: #FFD700;
-            border: none;
-            color: #000;
+        .logo img:not([src]) + span {
+            display: block;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-label {
+            flex-basis: 30%;
+            text-align: right;
+            padding-right: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .return-home {
+            margin-top: 20px;
             padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
-        a:hover {
-            background-color: #EEDC00;
+        .return-home:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <img class="logo" src="../logo.png" alt="西南大学教务处">
-    <h1>上传成功</h1>
-    <p>{{success_message}}</p>
-    <a href="../">返回上传页面</a>
+<div class="background"></div>
+<div class="overlay">
+    <div class="success-box">
+        <div class="logo">
+            <img src="../logo.png" alt="西南大学教务处">
+        </div>
+        <div class="requirements">
+            <h4>恭喜你，信息维护完成：</h4>
+            <p>{{success_message}}</p>
+        </div>
+        <button class="return-home" onclick="location.href='http://jwc.swu.edu.cn/'">返回教务处</button>
+    </div>
 </div>
 </body>
 </html>

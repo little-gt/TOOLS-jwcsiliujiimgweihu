@@ -1,6 +1,6 @@
 <?php
 // 设定查询关闭的时间
-$cutoffDateTime = '2024-09-27 21:30:00';
+$cutoffDateTime = '2024-09-28 21:30:00';
 
 // 当前时间
 $currentDateTime = date('Y-m-d H:i:s');
