@@ -60,6 +60,15 @@ function validateIDCard($idCard) {
 
 // 检查是否有文件上传
 if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] === UPLOAD_ERR_OK) {
+
+    // 检查上传的文件数量
+    if (count($_FILES["photo"]["name"]) > 1) {
+        session_start(); // 启动会话
+        $_SESSION['err_message'] = "只能上传一个文件，请确认后再试";
+        header("Location: result.php?error=" . urlencode("只能上传一个文件，请确认后再试"));
+        exit;
+    }
+
     // 获取文件信息
     $file_name = basename($_FILES["photo"]["name"]);
     $file_type = pathinfo($file_name, PATHINFO_EXTENSION);
