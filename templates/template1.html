@@ -182,9 +182,15 @@
     function handleDrop(event) {
         handleDragEvents(event);
         let files = event.dataTransfer.files;
-        if (files.length > 0) {
+        if (files.length = 1) {
             photoInput.files = files;
             validatePhoto(files[0]);
+        }
+        if (files.length > 1) {
+            message.textContent = '';
+            errorMessage.textContent = ''; // 清空错误消息
+            errorMessage.textContent = "只允许选择一个文件，请重新操作。";
+            submitBtn.disabled = true;
         }
         dropZone.classList.remove('active');
     }
